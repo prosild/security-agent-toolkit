@@ -28,12 +28,8 @@ def summarize_events(events):                                 # 경보 전체를
 
 def sort_by_risk(summaries):                                  # 요약을 high → medium → low 순서로 정렬하는 함수
     sorted_summaries = []                                     # 위험도순으로 모을 빈 리스트
-    # 1. for 로 ["high", "medium", "low"] 를 돌면서 level 에 담으세요
-    for level in ["high", "medium", "low"]:
-        # 2. 그 안에서 for 로 summaries 를 돌면서 s 에 담으세요
-        for s in summaries:
-            # 3. s 의 risk_level 을 소문자로 바꾼 값이 level 과 같으면 sorted_summaries 에 s 를 append 하세요
-            if s["risk_level"].lower() == level:
-                sorted_summaries.append(s)
-
+    for level in ["high", "medium", "low"]:                   # 이 순서대로 모은다
+        for s in summaries:                                   # 요약을 하나씩 꺼낸다
+            if s["risk_level"].lower() == level:              # 소문자로 맞춰 지금 위험도와 같으면
+                sorted_summaries.append(s)                    # 정렬 결과에 넣는다
     return sorted_summaries                                   # 정렬한 요약을 돌려준다
